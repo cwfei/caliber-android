@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Caliber</string>
+    <string name="clock">Clock</string>
+    <string name="watches">Watches</string>
 </resources>
