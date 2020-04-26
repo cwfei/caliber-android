@@ -47,6 +47,7 @@ captures/
 .idea/caches/build_file_checksums.ser
 .idea/misc.xml
 .idea/modules.xml
+.idea/.name
 
 # Keystore files
 *.jks
