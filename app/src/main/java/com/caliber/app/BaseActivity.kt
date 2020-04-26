@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 import com.caliber.app.R
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : DaggerActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
