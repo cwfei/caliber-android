@@ -1,4 +1,4 @@
-package com.caliber.app.ui
+package com.caliber.app.ui.clock
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

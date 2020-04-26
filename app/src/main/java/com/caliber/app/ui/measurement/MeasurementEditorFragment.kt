@@ -1,4 +1,4 @@
-package com.caliber.app.ui
+package com.caliber.app.ui.measurement
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +8,12 @@ import android.view.ViewGroup
 
 import com.caliber.app.R
 
-class MeasurementsFragment : Fragment() {
+class MeasurementEditorFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_measurements, container, false)
+        return inflater.inflate(R.layout.fragment_measurement_editor, container, false)
     }
 }
