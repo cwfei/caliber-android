@@ -28,6 +28,9 @@ class MainActivity : BaseActivity(),
         setContentView(R.layout.activity_main)
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected)
+        if (savedInstanceState == null) {
+            bottomNavigationView.selectedItemId = R.id.navigation_clock
+        }
     }
 
     override fun onNavigationItemSelected(@NonNull item: MenuItem): Boolean {

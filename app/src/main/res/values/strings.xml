@@ -2,4 +2,5 @@
     <string name="app_name">Caliber</string>
     <string name="clock">Clock</string>
     <string name="watches">Watches</string>
+    <string name="atomic_clock">Atomic Clock</string>
 </resources>

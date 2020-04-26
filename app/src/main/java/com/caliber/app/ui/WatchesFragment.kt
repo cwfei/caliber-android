@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.caliber.app.R
+import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class WatchesFragment : Fragment() {
 
@@ -15,5 +16,10 @@ class WatchesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_watches, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        titleTextView.text = getString(R.string.watches)
     }
 }
