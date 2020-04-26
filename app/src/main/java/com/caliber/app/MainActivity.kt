@@ -5,7 +5,6 @@ import android.view.MenuItem
 import androidx.annotation.NonNull
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
-import com.caliber.BaseActivity
 import com.caliber.app.ui.clock.ClockFragment
 import com.caliber.app.ui.watch.WatchesFragment
 import com.google.android.material.navigation.NavigationView

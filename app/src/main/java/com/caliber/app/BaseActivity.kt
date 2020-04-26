@@ -1,4 +1,4 @@
-package com.caliber
+package com.caliber.app
 
 import android.graphics.Color
 import android.os.Build
