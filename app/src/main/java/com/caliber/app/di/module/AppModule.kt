@@ -1,6 +1,8 @@
 package com.caliber.app.di.module
 
 import android.app.Application
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.caliber.app.BuildConfig
 import com.caliber.app.database.AppDatabase
@@ -36,5 +38,11 @@ class AppModule {
     @Provides
     fun provideReminderDao(database: AppDatabase): MeasurementDao {
         return database.measurementDao()
+    }
+
+    @Provides
+    @Singleton
+    fun providesSharedPreferences(app: Application): SharedPreferences {
+        return PreferenceManager.getDefaultSharedPreferences(app)
     }
 }
