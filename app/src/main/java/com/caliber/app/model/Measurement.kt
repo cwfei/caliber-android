@@ -9,6 +9,7 @@ import java.util.*
 @Entity
 open class Measurement(
     @PrimaryKey val id: String = UUID.randomUUID().toString(),
+    val watchId: String,
     val createdDate: Date,
     val deviation: Double
 )
