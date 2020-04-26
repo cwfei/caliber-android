@@ -6,13 +6,14 @@ import android.view.MenuItem
 import androidx.annotation.NonNull
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
+import com.caliber.BaseActivity
 import com.caliber.app.ui.ClockFragment
 import com.caliber.app.ui.WatchesFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.Clock
 
-class MainActivity : AppCompatActivity(),
+class MainActivity : BaseActivity(),
     NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
