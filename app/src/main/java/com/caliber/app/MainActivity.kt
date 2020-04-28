@@ -1,17 +1,26 @@
 package com.caliber.app
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.view.Window
 import androidx.annotation.NonNull
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import com.caliber.app.ui.clock.ClockFragment
+import com.caliber.app.ui.watch.WatchEditorActivity
+import com.caliber.app.ui.watch.WatchEditorFragment
 import com.caliber.app.ui.watch.WatchesFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.transition.MaterialContainerTransform
+import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback
+import com.remido.app.util.TAG
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity(),
-    NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
         private val TAG_TO_FRAGMENT_FACTORY_FUNCTION = mapOf<String, () -> Fragment>(
@@ -21,6 +30,8 @@ class MainActivity : BaseActivity(),
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        window.sharedElementsUseOverlay = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

@@ -7,5 +7,8 @@ import java.util.*
 @Entity
 open class Watch(
     @PrimaryKey val id: String = UUID.randomUUID().toString(),
-    val name: String
+    val brand: String,
+    val model: String,
+    val serial: String,
+    val notes: String
 )
