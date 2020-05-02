@@ -12,5 +12,5 @@ interface WatchDao {
     suspend fun getWatches(): List<Watch>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertWatches(watches: List<Watch>)
+    suspend fun insertWatch(watch: Watch)
 }

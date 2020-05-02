@@ -10,7 +10,7 @@ class WatchService @Inject constructor(
     private val watchDao: WatchDao
 ) {
 
-    suspend fun insertWatches(watches: List<Watch>) {
-        watchDao.insertWatches(watches)
+    suspend fun insertWatch(watch: Watch) {
+        watchDao.insertWatch(watch)
     }
 }

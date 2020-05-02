@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 
 import com.caliber.app.R
@@ -32,12 +33,23 @@ class WatchEditorFragment : Fragment(), Injectable {
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(WatchEditorViewModel::class.java)
         backButton.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            requireActivity().finish()
+        }
+        modelEditText.doAfterTextChanged {
+            viewModel.builder.setModel(it?.toString())
+            updateViews()
         }
         saveButton.setOnClickListener { onSave() }
+
+        updateViews()
+    }
+
+    private fun updateViews() {
+        saveButton.isEnabled = viewModel.isValidForProceeding()
     }
 
     private fun onSave() {
-
+        viewModel.save()
+        requireActivity().finish()
     }
 }
