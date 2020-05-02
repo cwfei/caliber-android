@@ -4,16 +4,38 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">?attr/colorSurface</item>
-        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="@style/Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="shapeAppearanceOverlay">@style/BottomSheetShapeAppearanceOverlay</item>
+    </style>
+
+    <style name="BottomSheetShapeAppearanceOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 </resources>
