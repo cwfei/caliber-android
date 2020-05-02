@@ -22,6 +22,6 @@ class WatchEditorViewModel @Inject constructor(
     }
 
     fun isValidForProceeding(): Boolean {
-        return !builder.brand.isNullOrEmpty()
+        return !builder.model.isNullOrEmpty()
     }
 }

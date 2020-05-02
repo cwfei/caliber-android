@@ -10,16 +10,8 @@ import javax.inject.Inject
 
 class SplashActivity : DaggerActivity() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    private lateinit var viewModel: SplashViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory)
-            .get(SplashViewModel::class.java)
-        AppCompatDelegate.setDefaultNightMode(viewModel.defaultNightMode)
 
         val intent = Intent(this@SplashActivity, MainActivity::class.java)
         startActivity(intent)

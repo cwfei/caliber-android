@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.caliber.app.R
 import com.caliber.app.di.Injectable
 import com.caliber.app.ui.watch.editor.WatchEditorActivity
 import kotlinx.android.synthetic.main.fragment_watches.*
 import kotlinx.android.synthetic.main.layout_toolbar.titleTextView
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class WatchesFragment : Fragment(), Injectable {
@@ -21,6 +24,8 @@ class WatchesFragment : Fragment(), Injectable {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: WatchesViewModel
+
+    private val adapter = WatchesAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +42,13 @@ class WatchesFragment : Fragment(), Injectable {
         addButton.setOnClickListener {
             val intent = Intent(requireActivity(), WatchEditorActivity::class.java)
             startActivity(intent)
+        }
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
+
+        lifecycleScope.launch {
+            adapter.items = viewModel.getWatches()
         }
     }
 }
