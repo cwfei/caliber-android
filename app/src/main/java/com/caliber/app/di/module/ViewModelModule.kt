@@ -6,6 +6,7 @@ import com.caliber.app.di.ViewModelFactory
 import com.caliber.app.di.ViewModelKey
 import com.caliber.app.ui.splash.SplashViewModel
 import com.caliber.app.ui.watch.WatchesViewModel
+import com.caliber.app.ui.watch.editor.WatchEditorViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -26,4 +27,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(WatchesViewModel::class)
     abstract fun bindWatchesViewModel(watchesViewModel: WatchesViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(WatchEditorViewModel::class)
+    abstract fun bindWatchE(watchEditorViewModel: WatchEditorViewModel): ViewModel
 }

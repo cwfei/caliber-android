@@ -11,7 +11,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : DaggerActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     companion object {
         private val TAG_TO_FRAGMENT_FACTORY_FUNCTION = mapOf<String, () -> Fragment>(
