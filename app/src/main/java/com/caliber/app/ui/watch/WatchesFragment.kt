@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.caliber.app.R
+import com.caliber.app.core.Keys
 import com.caliber.app.di.Injectable
 import com.caliber.app.model.Watch
 import com.caliber.app.ui.watch.editor.WatchEditorActivity
@@ -57,6 +58,8 @@ class WatchesFragment : Fragment(), Injectable, WatchesAdapter.Listener {
 
     override fun onViewWatch(watch: Watch) {
         val intent = Intent(requireContext(), WatchViewerActivity::class.java)
+        intent.putExtra(Keys.WatchViewer.watchId, watch.model)
+        intent.putExtra(Keys.WatchViewer.title, watch.model)
         startActivity(intent)
     }
 }

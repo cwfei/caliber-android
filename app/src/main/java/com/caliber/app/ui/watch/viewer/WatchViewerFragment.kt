@@ -5,13 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 
 import com.caliber.app.R
+import com.caliber.app.core.Keys
 import com.caliber.app.di.Injectable
+import kotlinx.android.synthetic.main.fragment_watch_viewer.*
 import javax.inject.Inject
 
 class WatchViewerFragment : Fragment(), Injectable {
+
+    companion object {
+        fun create(watchId: String, title: String): WatchViewerFragment {
+            return WatchViewerFragment().apply {
+                arguments = bundleOf(
+                    Keys.WatchViewer.watchId to watchId,
+                    Keys.WatchViewer.title to title
+                )
+            }
+        }
+    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -29,5 +43,8 @@ class WatchViewerFragment : Fragment(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(WatchViewerViewModel::class.java)
+        titleTextView.text = arguments?.getString(Keys.WatchViewer.title)
+
+        backButton.setOnClickListener { requireActivity().finish() }
     }
 }
