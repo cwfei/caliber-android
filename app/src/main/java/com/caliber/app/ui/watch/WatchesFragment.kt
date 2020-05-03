@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.caliber.app.R
 import com.caliber.app.di.Injectable
+import com.caliber.app.model.Watch
 import com.caliber.app.ui.watch.editor.WatchEditorActivity
 import kotlinx.android.synthetic.main.fragment_watches.*
 import kotlinx.android.synthetic.main.layout_toolbar.titleTextView
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class WatchesFragment : Fragment(), Injectable {
+class WatchesFragment : Fragment(), Injectable, WatchesAdapter.Listener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -46,9 +47,14 @@ class WatchesFragment : Fragment(), Injectable {
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
+        adapter.listener = this
 
         lifecycleScope.launch {
             adapter.items = viewModel.getWatches()
         }
+    }
+
+    override fun onViewWatch(watch: Watch) {
+
     }
 }

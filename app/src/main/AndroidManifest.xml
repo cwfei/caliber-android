@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="AllowBackup">
+        <activity android:name=".ui.watch.viewer.WatchViewerActivity"></activity>
         <activity
             android:name=".DaggerActivity"
             android:screenOrientation="portrait"

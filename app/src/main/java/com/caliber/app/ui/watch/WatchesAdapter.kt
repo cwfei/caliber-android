@@ -10,6 +10,12 @@ import kotlinx.android.synthetic.main.item_watch.view.*
 
 class WatchesAdapter : RecyclerView.Adapter<WatchesAdapter.ViewHolder>() {
 
+    interface Listener {
+        fun onViewWatch(watch: Watch)
+    }
+
+    var listener: Listener? = null
+
     var items: List<Watch> = listOf()
         set(value) {
             field = value
@@ -34,6 +40,8 @@ class WatchesAdapter : RecyclerView.Adapter<WatchesAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: Watch) = with(itemView) {
             modelTextView.text = item.model
+
+            cardView.setOnClickListener { listener?.onViewWatch(item) }
         }
     }
 }
