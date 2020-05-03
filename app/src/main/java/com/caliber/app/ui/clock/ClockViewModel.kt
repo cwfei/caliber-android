@@ -3,29 +3,28 @@ package com.caliber.app.ui.clock
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import com.caliber.app.R
+import com.caliber.app.service.FormatterService
+import com.caliber.app.service.TimeService
 import com.instacart.library.truetime.TrueTimeRx
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
 class ClockViewModel @Inject constructor(
-    private val application: Application
+    private val application: Application,
+    private val timeService: TimeService
 ) : ViewModel() {
 
     private val formatter = SimpleDateFormat.getTimeInstance()
 
     val closestMillisToNextSecond: Long
         get() {
-            return 1_000 - TrueTimeRx.now()
-                .time
-                .toString()
-                .takeLast(3)
-                .toLong()
+            return timeService.closestMillisToNextSecond
         }
 
     val formattedDateText: String
         get() {
-            return formatter.format(TrueTimeRx.now())
+            return timeService.formattedNow
         }
 
     val timeDifferencesText: String

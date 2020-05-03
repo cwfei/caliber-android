@@ -8,6 +8,7 @@ import com.caliber.app.BuildConfig
 import com.caliber.app.database.AppDatabase
 import com.caliber.app.database.MeasurementDao
 import com.caliber.app.database.WatchDao
+import com.caliber.app.service.FormatterService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -45,4 +46,7 @@ class AppModule {
     fun providesSharedPreferences(app: Application): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(app)
     }
+
+    @Provides
+    fun provideFormatterService(): FormatterService = FormatterService()
 }

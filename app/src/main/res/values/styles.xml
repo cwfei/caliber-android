@@ -4,11 +4,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorBackground</item>
-        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/colorPrimaryBackground</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryBackground</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
-        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:windowBackground">@color/colorPrimaryBackground</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -17,8 +17,8 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/colorBackground</item>
-        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/colorPrimaryBackground</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryBackground</item>
     </style>
 
     <style name="BottomSheetDialogTheme" parent="@style/Theme.MaterialComponents.BottomSheetDialog">
