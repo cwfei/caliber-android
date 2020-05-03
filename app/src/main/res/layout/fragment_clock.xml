@@ -9,12 +9,36 @@
 
     <include layout="@layout/layout_toolbar" />
 
-    <AnalogClock
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-thin"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="72sp"
+        app:layout_constraintBottom_toTopOf="@+id/timeDifferentTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/timeDifferentTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
