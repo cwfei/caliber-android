@@ -1,28 +1,30 @@
 package com.caliber.app.ui.clock
 
 import android.os.Bundle
-import android.text.format.DateUtils
-import android.text.format.DateUtils.SECOND_IN_MILLIS
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 
 import com.caliber.app.R
+import com.caliber.app.di.Injectable
+import com.caliber.app.ui.watch.editor.WatchEditorViewModel
 import com.instacart.library.truetime.TrueTimeRx
 import kotlinx.android.synthetic.main.fragment_clock.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
+import javax.inject.Inject
 
-class ClockFragment : Fragment() {
+class ClockFragment : Fragment(), Injectable {
 
-    private val formatter = SimpleDateFormat.getTimeInstance()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private lateinit var viewModel: ClockViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,18 +35,13 @@ class ClockFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this, viewModelFactory)
+            .get(ClockViewModel::class.java)
         titleTextView.text = getString(R.string.atomic_clock)
 
         lifecycleScope.launch {
             while (true) {
-                delay(
-                    1000 - TrueTimeRx.now()
-                        .time
-                        .toString()
-                        .takeLast(3)
-                        .toLong()
-                )
-
+                delay(viewModel.closestMillisToNextSecond)
                 updateViews()
             }
         }
@@ -61,7 +58,7 @@ class ClockFragment : Fragment() {
         val trueTime = TrueTimeRx.now()
         val millisDifference = trueTime.time - deviceTime.time
 
-        dateTextView.text = formatter.format(trueTime)
-        timeDifferentTextView.text = "${millisDifference} ms behind system clock"
+        dateTextView.text = viewModel.formattedDateText
+        timeDifferencesTextView.text = viewModel.timeDifferencesText
     }
 }

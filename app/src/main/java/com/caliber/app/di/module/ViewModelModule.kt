@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.caliber.app.di.ViewModelFactory
 import com.caliber.app.di.ViewModelKey
+import com.caliber.app.ui.clock.ClockViewModel
 import com.caliber.app.ui.measurement.editor.MeasurementEditorViewModel
 import com.caliber.app.ui.splash.SplashViewModel
 import com.caliber.app.ui.watch.WatchesViewModel
@@ -24,6 +25,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
     abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ClockViewModel::class)
+    abstract fun bindClockViewModel(clockViewModel: ClockViewModel): ViewModel
 
     @Binds
     @IntoMap

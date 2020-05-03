@@ -15,4 +15,6 @@
     <string name="save">Save</string>
     <string name="model_name">Model / Name</string>
     <string name="new_measurement">New measurement</string>
+    <string name="msg_millis_ahead_system_clock">%s milliseconds ahead system clock</string>
+    <string name="msg_millis_behind_system_clock">%s milliseconds behind system clock</string>
 </resources>
