@@ -1,6 +1,7 @@
 package com.caliber.app.di.module
 
 import androidx.fragment.app.Fragment
+import com.caliber.app.ui.measurement.editor.MeasurementEditorFragment
 import com.caliber.app.ui.watch.WatchesFragment
 import com.caliber.app.ui.watch.editor.WatchEditorFragment
 import com.caliber.app.ui.watch.viewer.WatchViewerFragment
@@ -19,4 +20,7 @@ abstract class FragmentBuildersModule {
 
     @ContributesAndroidInjector
     abstract fun contributeWatchViewerFragment(): WatchViewerFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeMeasurementEditorFragment(): MeasurementEditorFragment
 }

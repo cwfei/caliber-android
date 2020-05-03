@@ -14,4 +14,5 @@
     <string name="new_watch">New watch</string>
     <string name="save">Save</string>
     <string name="model_name">Model / Name</string>
+    <string name="new_measurement">New measurement</string>
 </resources>

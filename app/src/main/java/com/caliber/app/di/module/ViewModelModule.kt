@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.caliber.app.di.ViewModelFactory
 import com.caliber.app.di.ViewModelKey
+import com.caliber.app.ui.measurement.editor.MeasurementEditorViewModel
 import com.caliber.app.ui.splash.SplashViewModel
 import com.caliber.app.ui.watch.WatchesViewModel
 import com.caliber.app.ui.watch.editor.WatchEditorViewModel
@@ -32,10 +33,15 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(WatchEditorViewModel::class)
-    abstract fun bindWatchE(watchEditorViewModel: WatchEditorViewModel): ViewModel
+    abstract fun bindWatchEditorViewModel(watchEditorViewModel: WatchEditorViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(WatchViewerViewModel::class)
     abstract fun bindWatchViewerViewModel(watchViewerViewModel: WatchViewerViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MeasurementEditorViewModel::class)
+    abstract fun bindMeasurementEditorViewModel(measurementEditorViewModel: MeasurementEditorViewModel): ViewModel
 }

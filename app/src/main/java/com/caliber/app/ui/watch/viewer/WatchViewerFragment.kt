@@ -1,5 +1,6 @@
 package com.caliber.app.ui.watch.viewer
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.caliber.app.R
 import com.caliber.app.core.Keys
 import com.caliber.app.di.Injectable
+import com.caliber.app.ui.measurement.editor.MeasurementEditorActivity
+import com.caliber.app.ui.measurement.editor.MeasurementEditorViewModel
 import kotlinx.android.synthetic.main.fragment_watch_viewer.*
 import javax.inject.Inject
 
@@ -46,5 +49,9 @@ class WatchViewerFragment : Fragment(), Injectable {
         titleTextView.text = arguments?.getString(Keys.WatchViewer.title)
 
         backButton.setOnClickListener { requireActivity().finish() }
+        addButton.setOnClickListener {
+            val intent = Intent(requireContext(), MeasurementEditorActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
