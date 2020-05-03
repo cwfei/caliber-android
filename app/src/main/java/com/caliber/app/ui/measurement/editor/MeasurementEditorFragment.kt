@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.caliber.app.R
 import com.caliber.app.di.Injectable
+import kotlinx.android.synthetic.main.fragment_measurement_editor.*
 import javax.inject.Inject
 
 class MeasurementEditorFragment : Fragment(), Injectable {
@@ -29,5 +30,6 @@ class MeasurementEditorFragment : Fragment(), Injectable {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(MeasurementEditorViewModel::class.java)
+        backButton.setOnClickListener { requireActivity().finish() }
     }
 }
