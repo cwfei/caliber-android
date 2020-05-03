@@ -3,6 +3,7 @@ package com.caliber.app.di.module
 import com.caliber.app.MainActivity
 import com.caliber.app.ui.splash.SplashActivity
 import com.caliber.app.ui.watch.editor.WatchEditorActivity
+import com.caliber.app.ui.watch.viewer.WatchViewerActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -18,4 +19,7 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector(modules = [FragmentBuildersModule::class])
     abstract fun contributeWatchEditorActivity(): WatchEditorActivity
+
+    @ContributesAndroidInjector(modules = [FragmentBuildersModule::class])
+    abstract fun contributeWatchViewerActivity(): WatchViewerActivity
 }

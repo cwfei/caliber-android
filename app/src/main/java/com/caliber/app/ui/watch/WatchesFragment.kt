@@ -14,6 +14,7 @@ import com.caliber.app.R
 import com.caliber.app.di.Injectable
 import com.caliber.app.model.Watch
 import com.caliber.app.ui.watch.editor.WatchEditorActivity
+import com.caliber.app.ui.watch.viewer.WatchViewerActivity
 import kotlinx.android.synthetic.main.fragment_watches.*
 import kotlinx.android.synthetic.main.layout_toolbar.titleTextView
 import kotlinx.coroutines.launch
@@ -55,6 +56,7 @@ class WatchesFragment : Fragment(), Injectable, WatchesAdapter.Listener {
     }
 
     override fun onViewWatch(watch: Watch) {
-
+        val intent = Intent(requireContext(), WatchViewerActivity::class.java)
+        startActivity(intent)
     }
 }
