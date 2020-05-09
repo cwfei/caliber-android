@@ -10,13 +10,16 @@ import androidx.lifecycle.lifecycleScope
 
 import com.caliber.app.R
 import com.caliber.app.di.Injectable
+import com.caliber.app.ui.shared.DateTimePicker
 import com.instacart.library.truetime.TrueTimeRx
 import kotlinx.android.synthetic.main.fragment_measurement_editor.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.text.DecimalFormat
+import java.util.*
 import javax.inject.Inject
 
-class MeasurementEditorFragment : Fragment(), Injectable {
+class MeasurementEditorFragment : Fragment(), Injectable, DateTimePicker.OnValueChangedListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -36,21 +39,32 @@ class MeasurementEditorFragment : Fragment(), Injectable {
             .get(MeasurementEditorViewModel::class.java)
         backButton.setOnClickListener { requireActivity().finish() }
 
+        dateTimePicker.setInitialDate(viewModel.selectedDate)
+        dateTimePicker.onValueChangedListener = this
+        dateTextView.text = viewModel.formattedDateText
+
         lifecycleScope.launch {
             while (true) {
                 delay(viewModel.closestMillisToNextSecond)
-                updateViews()
+
+                if (!TrueTimeRx.isInitialized()) {
+                    return@launch
+                }
+
+                dateTextView.text = viewModel.formattedDateText
             }
         }
 
-        updateViews()
+        lifecycleScope.launch {
+            while (true) {
+                delay(100)
+                currentDeviationTextView.text = viewModel.currentDeviationText
+
+            }
+        }
     }
 
-    private fun updateViews() {
-        if (!TrueTimeRx.isInitialized()) {
-            return
-        }
-
-        dateTextView.text = viewModel.formattedDateText
+    override fun onValueChanged(picker: DateTimePicker, date: Date) {
+        viewModel.selectDate(date)
     }
 }

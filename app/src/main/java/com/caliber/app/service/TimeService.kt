@@ -2,6 +2,7 @@ package com.caliber.app.service
 
 import android.app.Application
 import com.instacart.library.truetime.TrueTimeRx
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,8 +18,13 @@ class TimeService @Inject constructor(private val formatterService: FormatterSer
                 .toLong()
         }
 
+    val now: Date
+        get() {
+            return TrueTimeRx.now()
+        }
+
     val formattedNow: String
         get() {
-            return formatterService.timeFormatter.format(TrueTimeRx.now())
+            return formatterService.timeFormatter.format(now)
         }
 }

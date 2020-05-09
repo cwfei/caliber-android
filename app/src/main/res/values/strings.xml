@@ -20,4 +20,7 @@
     <string name="ntp_time">NTP Time</string>
     <string name="last_deviation">Last deviation</string>
     <string name="current_deviation">Current deviation</string>
+    <string name="msg_measurement_instruction">Tap measure when your watch matches.\n Adjust the time as needed below.</string>
+    <string name="measure">Measure</string>
+    <string name="total_seconds">%s seconds</string>
 </resources>
