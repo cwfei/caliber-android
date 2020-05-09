@@ -18,4 +18,6 @@
     <string name="msg_millis_ahead_system_clock">%s milliseconds ahead system clock</string>
     <string name="msg_millis_behind_system_clock">%s milliseconds behind system clock</string>
     <string name="ntp_time">NTP Time</string>
+    <string name="last_deviation">Last deviation</string>
+    <string name="current_deviation">Current deviation</string>
 </resources>
