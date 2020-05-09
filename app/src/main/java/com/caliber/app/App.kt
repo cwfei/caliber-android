@@ -22,7 +22,7 @@ class App : Application(), HasAndroidInjector {
 
         TrueTimeRx.build()
             .withSharedPreferencesCache(this)
-            .initializeRx("time.apple.com")
+            .initializeRx("time.google.com")
             .subscribeOn(Schedulers.io())
             .subscribe()
     }
